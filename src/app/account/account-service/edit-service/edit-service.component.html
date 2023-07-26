@@ -1,0 +1,132 @@
+    <a class="block px-4 py-2 text-sm hover:rounded-md cursor-pointer text-gray-700 hover:bg-gray-100"
+      (click)="openeditService()">Edit</a>
+    <div #editService tabindex="1000" aria-hidden="true"
+      class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+      <div class="relative w-full max-w-4xl max-h-full">
+        <div class="relative bg-white rounded-lg shadow ">
+          <div class="flex items-start justify-between p-4 rounded-t border-b-2 border-[#9133AE]">
+            <h3 class="text-xl  text-left font-semibold w-full text-gray-900 ">
+              EDIT SERVICE
+            </h3>
+            <button type="button" (click)="closeModal()"
+              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center">
+              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+              </svg>
+            </button>
+          </div>
+          <div class="p-6 space-y-6 overflow-auto max-h-[80vh]">
+            <div class="grid grid-cols-2 gap-2">
+              <div class="flex items-center justify-start w-full">
+                <label for="dropzone-file"
+                  class="flex flex-col items-center justify-center w-44 h-44 p-5 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                  <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                    <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                    </svg>
+                    <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to
+                        upload</span> or drag and drop</p>
+                  </div>
+                  <input id="dropzone-file" type="file" class="hidden" />
+                </label>
+              </div>
+              <div></div>
+              <div class="mb-1">
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Service
+                  Type</label>
+                <input type="text" id="email"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="name@flowbite.com" required>
+              </div>
+              <div class="mb-1">
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
+                <select id="countries"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  <option selected>Choose a category</option>
+                  <option value="US">United States</option>
+                  <option value="CA">Canada</option>
+                  <option value="FR">France</option>
+                  <option value="DE">Germany</option>
+                </select>
+              </div>
+              <div class="mb-1">
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                <input type="text" id="email"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="name@flowbite.com" required>
+              </div>
+              <div class="mb-1">
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone</label>
+                <input type="text" id="email"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="name@flowbite.com" required>
+              </div>
+              <div class="mb-1">
+                <label for="email"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                <textarea id="message" rows="4"
+                  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Write your thoughts here..."></textarea>
+              </div>
+              <div class="mb-1">
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
+                <textarea id="message" rows="4"
+                  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Write your thoughts here..."></textarea>
+              </div>
+              <div class="mb-1">
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Additional
+                  Note</label>
+                <input type="text" id="email"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="name@flowbite.com" required>
+              </div>
+              <div class="mb-1">
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Time(ex:09:00 AM
+                  -
+                  11:00 AM)</label>
+                <div class="grid-cols-2 grid">
+                  <input type="time" id="email"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="name@flowbite.com" required>
+                  <input type="time" id="email"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="name@flowbite.com" required>
+                </div>
+              </div>
+              <div class="price">
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
+                <div class="chips-container flex flex-wrap gap-1">
+                  <button class="chips" [ngClass]="{'active': typePrice=='free'}"
+                    (click)="chooseTypePrice('free')">Free</button>
+                  <button class="chips" [ngClass]="{'active': typePrice=='ask'}" (click)="chooseTypePrice('ask')">Ask
+                    For
+                    Price</button>
+                  <button class="chips" [ngClass]="{'active': typePrice=='non'}" (click)="chooseTypePrice('non')">Non
+                    Tarif</button>
+                  <button class="chips" [ngClass]="{'active': typePrice=='static'}"
+                    (click)="chooseTypePrice('static')">Static</button>
+                </div>
+
+                <input type="number" id="email" *ngIf="typePrice=='static'"
+                  class="bg-gray-50 border mt-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Enter price" required>
+              </div>
+              <div class="mb-1">
+                <label for="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date</label>
+                <input type="date" id="date"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="name@flowbite.com" required>
+              </div>
+            </div>
+            <div class="flex justify-end">
+              <button class="bg-[#9133AE] px-5 py-2 text-[14px] rounded-md text-white">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

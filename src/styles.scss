@@ -1,1 +1,154 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+$border-width: 18px;
+$border-height: 18px;
+$check-width: 4px;
+$check-height: 8px;
+
+
+.custom-checkbox {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  width: $border-width;
+  height: $border-height;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    width: $border-width;
+    height: $border-height;
+  }
+
+  .checkbox-label {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: $border-width;
+      height: $border-height;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+    }
+  }
+
+  input:checked+.checkbox-label::before {
+    background-color: #800080;
+  }
+
+  input:checked+.checkbox-label::after {
+    content: "";
+    position: absolute;
+    left: calc(($border-width - $check-width)/2);
+    top: calc(($border-height - $check-height)/2);
+    width: $check-width;
+    height: $check-height;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+}
+
+
+
+.star {
+  display: inline-block;
+  font-size: 20px;
+  color: #86747A;
+  margin-right: 4px;
+}
+
+.star.active {
+  color: #E85815 !important;
+}
+
+i.angle-left-icon {
+  background-image: url('assets/icon/angle-left.svg');
+  width: 64px;
+  height: 64px;
+  display: inline-block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+i.angle-right-icon {
+  background-image: url('assets/icon/angle-right.svg');
+  width: 64px;
+  height: 64px;
+  display: inline-block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sidebar {
+  .sidebar-item {
+    color: #33363F;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    height: 40px;
+    cursor: pointer;
+
+    i {
+      width: 40px;
+      display: block;
+      font-size: 28px;
+    }
+  }
+
+  .sidebar-item.active {
+    color: #9133AE;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    border-right: 2px solid #9133AE;
+
+    i {
+      width: 40px;
+      display: block;
+      font-size: 28px;
+    }
+  }
+}
+
+.chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+
+  button.chips {
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 12px;
+    border: 1px solid gray;
+    background-color: white;
+    font-weight: 500;
+    // color: var(--soft-black-color-color);
+  }
+
+  button.chips:hover {
+    background-color: #9133AE;
+    border: 1px solid #9133AE;
+    color: white;
+  }
+
+  button.chips.active {
+    border: 1px solid #9133AE;
+    color: #9133AE;
+    background-color: white;
+  }
+}

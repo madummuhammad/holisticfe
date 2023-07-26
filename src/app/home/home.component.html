@@ -1,0 +1,473 @@
+<div class="w-full bg-cover bg-center h-[32rem]" style="background-image: url(../../assets/Bg-top.png)">
+  <app-header></app-header>
+  <!-- <app-login-modal></app-login-modal> -->
+  <div class="flex items-center justify-center h-full w-full">
+    <div class="text-center w-full px-2 sm:px-0 sm:w-2/3">
+      <div class="text-white font-[600] text-xl md:text-[54px] leading-normal">WELLNESS TO HAPPIER YOU</div>
+      <div class="font-[400] text-xl md:text-[36px] text-white leading-normal">
+        MIND • SPIRIT • BODY • SOUL
+      </div>
+
+      <!-- Md -->
+      <div class="grid-cols-2 mt-3 hidden md:grid">
+        <div class="relative bg-white rounded-l-[10px] shadow h-[64px] flex items-center"
+          [ngClass]="{'rounded-bl-none': isSearchMd}">
+          <div class="text-[16px] flex items-center ps-[20px]">
+            <i class="fas fa-search text-gray-500 mr-2 text-[24px] me-[16px]"></i>
+            <input type="text" (focus)="searchFocusMd()" (blur)="searchFocusMd()"
+              class="w-full bg-transparent py-[10px] border-none text-gray-700 placeholder-gray-500"
+              placeholder="Search for anything">
+          </div>
+          <div class="hidden md:block absolute top-[100%] bg-white left-0 right-0 p-5 shadow-lg" *ngIf="isSearchMd">
+            <h3 class="font-bold text-left">Explore Holisticstation</h3>
+            <div class="flex flex-wrap justify-start mt-2">
+              <div class="cursor-pointer px-2 py-1 block border border-[#9133AE] me-2 mb-2">
+                Fitness
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="bg-white rounded-r-[10px] shadow h-[64px] flex items-center w-[82%]">
+            <div class="text-[16px] flex items-center ps-[20px]">
+              <i class="fa-solid fa-location-dot  text-gray-500 mr-2 text-[24px] me-[16px]"></i>
+              <input type="text"
+                class="w-full border-none bg-transparent py-[10px] focus:outline-none text-gray-700 placeholder-gray-500"
+                placeholder="Location">
+            </div>
+          </div>
+          <div class="w-18%">
+            <button
+              class="absolute right-0 top-0 bottom-0 w-[64px] h-[64px] flex items-center justify-center bg-purple-500 rounded-[10px] px-4 ml-6">
+              <i class="fas fa-search text-white text-[24px]"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile -->
+      <div class="grid-cols-1 mt-3 grid md:hidden">
+        <div class="relative bg-white rounded-[10px] shadow h-[64px] flex items-center">
+          <div class="text-[16px] flex items-center ps-[20px]">
+            <i class="fas fa-search text-gray-500 mr-2 text-[24px] me-[16px]"></i>
+            <input type="text" (click)="searchFocus()"
+              class="w-full bg-transparent py-[10px] focus:outline-none text-gray-700 placeholder-gray-500"
+              placeholder="Search for anything">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Search -->
+<div class="block md:hidden fixed z-50 top-0 left-0 right-0 bottom-0 bg-white p-4" *ngIf="isSearch">
+  <button (click)="searchFocus()"
+    class="flex items-center focus:shadow h-[20px] w-[20px] rounded-sm ms-2 text-[#9133AE]"><i
+      class="fa-solid fa-angle-left"></i> Back
+  </button>
+  <div class="mt-3">
+    <div class="relative bg-white rounded-[10px] shadow-lg h-[64px] flex items-center">
+      <div class="text-[16px] flex items-center ps-[20px]">
+        <i class="fas fa-search text-gray-500 mr-2 text-[24px] me-[16px]"></i>
+        <input type="text" (focus)="searchFocusMd()" (blur)="searchFocusMd()"
+          class="w-full bg-transparent py-[10px] focus:outline-none text-gray-700 placeholder-gray-500"
+          placeholder="Search for anything">
+      </div>
+    </div>
+    <div class="relative mt-2">
+      <div class="bg-white rounded-[10px] shadow-lg h-[64px] flex items-center w-[82%]">
+        <div class="text-[16px] flex items-center ps-[20px]">
+          <i class="fa-solid fa-location-dot  text-gray-500 mr-2 text-[24px] me-[16px]"></i>
+          <input type="text"
+            class="w-full bg-transparent py-[10px] focus:outline-none text-gray-700 placeholder-gray-500"
+            placeholder="Location">
+        </div>
+      </div>
+      <div class="w-18%">
+        <button
+          class="absolute right-0 top-0 bottom-0 w-[64px] h-[64px] flex items-center justify-center bg-purple-500 rounded-[10px] px-4 ml-6">
+          <i class="fas fa-search text-white text-[24px]"></i>
+        </button>
+      </div>
+      <div class="block absolute top-[100%] bg-white left-0 rounded right-0 p-5 shadow-lg mt-2" *ngIf="isSearchMd">
+        <h3 class="font-bold text-left">Explore Holisticstation</h3>
+        <div class="flex flex-wrap justify-start mt-2">
+          <div class="cursor-pointer px-2 py-1 block border border-[#9133AE] me-2 mb-2">
+            Fitness
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Search -->
+<div class="px-5 sm:px-[60px] lg:px-[120px] mt-[88px]">
+  <section class="section-explore mb-[80px]">
+    <div class="text-[24px] font-[600] mb-[32px]">
+      Explore
+    </div>
+    <div class="swiper-container relative ">
+      <swiper #swiperExplore [config]="swiperExploreConfig">
+        <ng-template swiperSlide *ngFor="let item of serviceCategory; let i = index">
+          <div [ngClass]="{'bg-[#FFE3D9]': i % 3 === 0, 'bg-[#DBCC48]': i % 3 === 1, 'bg-[#C8E3DD]': i % 3 === 2}"
+            class="h-[157px] flex items-center text-center rounded-lg">
+            <div class="text-center w-full text-[24px] font-[500]">
+              {{item.name}}
+            </div>
+          </div>
+        </ng-template>
+        <!-- <ng-template swiperSlide>
+          <div class="h-[157px] bg-[#FFE3D9] flex items-center text-center rounded-lg">
+            <div class="text-center w-full text-[24px] font-[500]">
+              Reding
+            </div>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="h-[157px] bg-[#DBCC48] flex items-center text-center rounded-lg">
+            <div class="text-center w-full text-[24px] font-[500]">
+              Metaphysical
+            </div>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="h-[157px] bg-[#C8E3DD] flex items-center text-center rounded-lg">
+            <div class="text-center w-full text-[24px] font-[500]">
+              Spriritual
+            </div>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="h-[157px] bg-[#FFE3D9] flex items-center text-center rounded-lg">
+            <div class="text-center w-full text-[24px] font-[500]">
+              Reding
+            </div>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="h-[157px] bg-[#DBCC48] flex items-center text-center rounded-lg">
+            <div class="text-center w-full text-[24px] font-[500]">
+              Metaphysical
+            </div>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="h-[157px] bg-[#C8E3DD] flex items-center text-center rounded-lg">
+            <div class="text-center w-full text-[24px] font-[500]">
+              Spriritual
+            </div>
+          </div>
+        </ng-template> -->
+      </swiper>
+      <button class="absolute left-0 sm:left-[-60px] top-0 text-[#86747A] z-10 h-full text-[64px]"
+        (click)="prevExplore()"><i class="angle-left-icon"></i></button>
+      <button class="absolute right-0 sm:right-[-60px] top-0 text-[#86747A] z-10 h-full text-[64px]"
+        (click)="nextExplore()"><i class="angle-right-icon"></i></button>
+    </div>
+  </section>
+  <section class="section-practicioner">
+    <div class="text-[24px] font-[600] mb-[32px]">
+      Practicioner
+    </div>
+    <div class="swiper-container relative ">
+      <swiper #swiperPracticioner [config]="swiperPracticionerConfig">
+        <ng-template swiperSlide *ngFor="let item of user">
+          <div class="sm:max-w-xs sm:mx-auto bg-white  rounded-lg overflow-hidden">
+            <div *ngIf="!item.image"
+              class="w-full h-[180px] object-cover object-top mb-[18px] bg-[#9133AE] flex items-center justify-center text-[30px] text-white font-bold">
+              <span *ngIf="item.first_name">
+                {{item.first_name.split('')[0]}}
+              </span>
+              <span *ngIf="item.last_name">
+                {{item.last_name.split('')[0]}}
+              </span>
+            </div>
+            <img *ngIf="item.image" class="w-full h-[180px] object-cover object-top mb-[18px]"
+              src="https://storage.googleapis.com/nstekapps-tokomobile.appspot.com/thumb-image/Z99lHyNvgg8ngjm4NU7lEptMkCfGaVDOqLC9T4KV.jpg"
+              alt="Foto">
+            <div class="py-2">
+              <div class="flex items-center mb-2">
+                <svg *ngFor="let items of item.stars" class="w-4 h-4 text-yellow-500 fill-current" viewBox="0 0 20 20">
+                  <path d="M10 0l3.09 6.31 6.91.99-5 4.85 1.18 6.88-6.18-3.25-6.18 3.25 1.18-6.88-5-4.85 6.91-.99z" />
+                </svg>
+                <span class="text-gray-600 ml-2 text-[12px] font-[400]">{{item.average_rating}} ({{item.ratings.length}}
+                  reviews)</span>
+              </div>
+              <p class=" text-sm mb-2 text-[20px] font-[500] text-[#33363F]">{{item.first_name}} {{item.last_name}}</p>
+              <!-- <p class="text-[#86747A] text-[12px] font-[500]">Ruqiyah | 1 mi</p> -->
+            </div>
+          </div>
+        </ng-template>
+      </swiper>
+      <button class="absolute left-0 sm:left-[-60px] top-0 text-[#86747A] z-10 h-full text-[64px]"
+        (click)="prevPracticioner()"><i class="angle-left-icon"></i></button>
+      <button class="absolute right-0 sm:right-[-60px] top-0 text-[#86747A] z-10 h-full text-[64px]"
+        (click)="nextPracticioner()"><i class="angle-right-icon"></i></button>
+    </div>
+    <a href="" class=" mt-[32px] text-[#9133AE] text-[12px] font-[500]">Show all (100+) <span><i
+          class="fa-solid fa-arrow-right"></i></span></a>
+  </section>
+  <section class="section-product mt-[80px]">
+    <div class="text-[24px] font-[600] mb-[32px]">
+      Produk
+    </div>
+    <div class="swiper-container relative ">
+      <swiper #swiperProduct [config]="swiperProductConfig">
+        <ng-template swiperSlide>
+          <div class="sm:max-w-xs sm:mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+            <img class="w-full h-[180px] object-cover object-top mb-[18px]"
+              src="https://storage.googleapis.com/nstekapps-tokomobile.appspot.com/thumb-image/stuC46L2lAxr7W1Vt09s69rktTZjkxrtyEgcH3mY.jpg"
+              alt="Gambar Produk">
+            <div class="py-2">
+              <div class="flex justify-between">
+                <div class="text-[#33363F] font-[500] text-lg text-[20px]">Herbal</div>
+                <div>
+                  <p class="text-[#9133AE] text-[14px]">Rp 100.000</p>
+                </div>
+              </div>
+              <p class="text-[#86747A] text-[12px] mt[8px]">Thomas Magnum | Jakarta</p>
+              <button class="mt-[18px] w-full bg-transparent hover:bg-[#9133AE;] h-[48px] text-[#9133AE] font-semibold
+                hover:text-white border border-[#9133AE] hover:border-transparent rounded">
+                Contact us
+              </button>
+            </div>
+          </div>
+
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="sm:max-w-xs sm:mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+            <img class="w-full h-[180px] object-cover object-top mb-[18px]"
+              src="https://storage.googleapis.com/nstekapps-tokomobile.appspot.com/thumb-image/Z99lHyNvgg8ngjm4NU7lEptMkCfGaVDOqLC9T4KV.jpg"
+              alt="Gambar Produk">
+            <div class="py-2">
+              <div class="flex justify-between">
+                <div class="text-[#33363F] font-[500] text-lg text-[20px]">Herbal</div>
+                <div>
+                  <p class="text-[#9133AE] text-[14px]">Rp 100.000</p>
+                </div>
+              </div>
+              <p class="text-[#86747A] text-[12px] mt[8px]">Thomas Magnum | Jakarta</p>
+              <button class="mt-[18px] w-full bg-transparent hover:bg-[#9133AE;] h-[48px] text-[#9133AE] font-semibold
+                hover:text-white border border-[#9133AE] hover:border-transparent rounded">
+                Contact us
+              </button>
+            </div>
+          </div>
+
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="sm:max-w-xs sm:mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+            <img class="w-full h-[180px] object-cover object-top mb-[18px]"
+              src="https://storage.googleapis.com/nstekapps-tokomobile.appspot.com/thumb-image/stuC46L2lAxr7W1Vt09s69rktTZjkxrtyEgcH3mY.jpg"
+              alt="Gambar Produk">
+            <div class="py-2">
+              <div class="flex justify-between">
+                <div class="text-[#33363F] font-[500] text-lg text-[20px]">Herbal</div>
+                <div>
+                  <p class="text-[#9133AE] text-[14px]">Rp 100.000</p>
+                </div>
+              </div>
+              <p class="text-[#86747A] text-[12px] mt[8px]">Thomas Magnum | Jakarta</p>
+              <button class="mt-[18px] w-full bg-transparent hover:bg-[#9133AE;] h-[48px] text-[#9133AE] font-semibold
+                hover:text-white border border-[#9133AE] hover:border-transparent rounded">
+                Contact us
+              </button>
+            </div>
+          </div>
+
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="sm:max-w-xs sm:mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+            <img class="w-full h-[180px] object-cover object-top mb-[18px]"
+              src="https://storage.googleapis.com/nstekapps-tokomobile.appspot.com/thumb-image/Z99lHyNvgg8ngjm4NU7lEptMkCfGaVDOqLC9T4KV.jpg"
+              alt="Gambar Produk">
+            <div class="py-2">
+              <div class="flex justify-between">
+                <div class="text-[#33363F] font-[500] text-lg text-[20px]">Herbal</div>
+                <div>
+                  <p class="text-[#9133AE] text-[14px]">Rp 100.000</p>
+                </div>
+              </div>
+              <p class="text-[#86747A] text-[12px] mt[8px]">Thomas Magnum | Jakarta</p>
+              <button class="mt-[18px] w-full bg-transparent hover:bg-[#9133AE;] h-[48px] text-[#9133AE] font-semibold
+                hover:text-white border border-[#9133AE] hover:border-transparent rounded">
+                Contact us
+              </button>
+            </div>
+          </div>
+
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="sm:max-w-xs sm:mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+            <img class="w-full h-[180px] object-cover object-top mb-[18px]"
+              src="https://storage.googleapis.com/nstekapps-tokomobile.appspot.com/thumb-image/stuC46L2lAxr7W1Vt09s69rktTZjkxrtyEgcH3mY.jpg"
+              alt="Gambar Produk">
+            <div class="py-2">
+              <div class="flex justify-between">
+                <div class="text-[#33363F] font-[500] text-lg text-[20px]">Herbal</div>
+                <div>
+                  <p class="text-[#9133AE] text-[14px]">Rp 100.000</p>
+                </div>
+              </div>
+              <p class="text-[#86747A] text-[12px] mt[8px]">Thomas Magnum | Jakarta</p>
+              <button class="mt-[18px] w-full bg-transparent hover:bg-[#9133AE;] h-[48px] text-[#9133AE] font-semibold
+                hover:text-white border border-[#9133AE] hover:border-transparent rounded">
+                Contact us
+              </button>
+            </div>
+          </div>
+
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="sm:max-w-xs sm:mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+            <img class="w-full h-[180px] object-cover object-top mb-[18px]"
+              src="https://storage.googleapis.com/nstekapps-tokomobile.appspot.com/thumb-image/Z99lHyNvgg8ngjm4NU7lEptMkCfGaVDOqLC9T4KV.jpg"
+              alt="Gambar Produk">
+            <div class="py-2">
+              <div class="flex justify-between">
+                <div class="text-[#33363F] font-[500] text-lg text-[20px]">Herbal</div>
+                <div>
+                  <p class="text-[#9133AE] text-[14px]">Rp 100.000</p>
+                </div>
+              </div>
+              <p class="text-[#86747A] text-[12px] mt[8px]">Thomas Magnum | Jakarta</p>
+              <button class="mt-[18px] w-full bg-transparent hover:bg-[#9133AE;] h-[48px] text-[#9133AE] font-semibold
+                hover:text-white border border-[#9133AE] hover:border-transparent rounded">
+                Contact us
+              </button>
+            </div>
+          </div>
+
+        </ng-template>
+      </swiper>
+      <button class="absolute left-0 sm:left-[-60px] top-0 text-[#86747A] z-10 h-full text-[64px]"
+        (click)="prevProduct()"><i class="angle-left-icon"></i></button>
+      <button class="absolute right-0 sm:right-[-60px] top-0 text-[#86747A] z-10 h-full text-[64px]"
+        (click)="nextProduct()"><i class="angle-right-icon"></i></button>
+    </div>
+    <a href="" class=" mt-[32px] text-[#9133AE] text-[12px] font-[500]">Show all (100+) <span><i
+          class="fa-solid fa-arrow-right"></i></span></a>
+  </section>
+  <section class="section-slider mt-[80px]">
+    <div class="text-[24px] font-[600] mb-[32px]">
+      Promotions
+    </div>
+    <div class="swiper-container relative ">
+      <swiper #swiperPromotion [slidesPerView]="1" [spaceBetween]="26">
+        <ng-template swiperSlide *ngFor="let item of sliderHomepage">
+          <div class="">
+            <img class="w-full h-[360] lg:h-[500px] object-cover object-center rounded-[16px] mb-[18px]"
+              src="{{item.image}}" alt="Gambar Produk">
+          </div>
+        </ng-template>
+      </swiper>
+      <button class="absolute left-0 sm:left-[-60px] top-0 text-[#86747A] z-10 h-full text-[64px]"
+        (click)="prevPromotion()"><i class="angle-left-icon"></i></button>
+      <button class="absolute right-0 sm:right-[-60px] top-0 text-[#86747A] z-10 h-full text-[64px]"
+        (click)="nextPromotion()"><i class="angle-right-icon"></i></button>
+    </div>
+  </section>
+  <section class="section-favorite mt-[66px]">
+    <div class="text-[24px] font-[600] mb-[32px]">
+      Favorites
+    </div>
+    <div class="swiper-container relative ">
+      <swiper #swiperFavorite [config]="swiperFavoritesConfig">
+        <ng-template swiperSlide>
+          <div
+            class="sm:max-w-xs sm:mx-auto bg-white  rounded-lg overflow-hidden relative flex items-center justify-center">
+            <img class="h-[180px] lg:h-[206px] w-[180px] lg:w-[206px] object-cover object-top mb-[18px] rounded-full"
+              src="https://storage.googleapis.com/nstekapps-tokomobile.appspot.com/thumb-image/Z99lHyNvgg8ngjm4NU7lEptMkCfGaVDOqLC9T4KV.jpg"
+              alt="Foto">
+            <div class="absolute text-[24px] font-[500 text-center text-white">
+              Jonathan Higgins
+            </div>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div
+            class="sm:max-w-xs sm:mx-auto bg-white  rounded-lg overflow-hidden  relative flex items-center justify-center">
+            <img class="h-[180px] lg:h-[206px] w-[180px] lg:w-[206px] object-cover object-top mb-[18px] rounded-full"
+              src="https://storage.googleapis.com/nstekapps-tokomobile.appspot.com/thumb-image/Z99lHyNvgg8ngjm4NU7lEptMkCfGaVDOqLC9T4KV.jpg"
+              alt="Foto">
+            <div class="absolute text-[24px] font-[500 text-center text-white">
+              Jonathan Higgins
+            </div>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div
+            class="sm:max-w-xs sm:mx-auto bg-white  rounded-lg overflow-hidden  relative flex items-center justify-center">
+            <img class="h-[180px] lg:h-[206px] w-[180px] lg:w-[206px] object-cover object-top mb-[18px] rounded-full"
+              src="https://storage.googleapis.com/nstekapps-tokomobile.appspot.com/thumb-image/Z99lHyNvgg8ngjm4NU7lEptMkCfGaVDOqLC9T4KV.jpg"
+              alt="Foto">
+            <div class="absolute text-[24px] font-[500 text-center text-white">
+              Jonathan Higgins
+            </div>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div
+            class="sm:max-w-xs sm:mx-auto bg-white  rounded-lg overflow-hidden  relative flex items-center justify-center">
+            <img class="h-[180px] lg:h-[206px] w-[180px] lg:w-[206px] object-cover object-top mb-[18px] rounded-full"
+              src="https://storage.googleapis.com/nstekapps-tokomobile.appspot.com/thumb-image/Z99lHyNvgg8ngjm4NU7lEptMkCfGaVDOqLC9T4KV.jpg"
+              alt="Foto">
+            <div class="absolute text-[24px] font-[500 text-center text-white">
+              Jonathan Higgins
+            </div>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div
+            class="sm:max-w-xs sm:mx-auto bg-white  rounded-lg overflow-hidden  relative flex items-center justify-center">
+            <img class="h-[180px] lg:h-[206px] w-[180px] lg:w-[206px] object-cover object-top mb-[18px] rounded-full"
+              src="https://storage.googleapis.com/nstekapps-tokomobile.appspot.com/thumb-image/Z99lHyNvgg8ngjm4NU7lEptMkCfGaVDOqLC9T4KV.jpg"
+              alt="Foto">
+            <div class="absolute text-[24px] font-[500 text-center text-white">
+              Jonathan Higgins
+            </div>
+          </div>
+        </ng-template>
+      </swiper>
+      <button class="absolute left-0 sm:left-[-60px] top-0 text-[#86747A] z-10 h-full text-[64px]"
+        (click)="prevFavorite()"><i class="angle-left-icon"></i></button>
+      <button class="absolute right-0 sm:right-[-60px] top-0 text-[#86747A] z-10 h-full text-[64px]"
+        (click)="nextFavorite()"><i class="angle-right-icon"></i></button>
+    </div>
+  </section>
+  <div class="bg-white">
+    <div class="pb-12 sm:mx-auto">
+      <div class="text-[24px] font-[600] text-center mt-[80px]">Holistic Station is everywhere you are</div>
+      <div class="text-[16px] font-[600] text-center mt-[8px]">Check us out in some of our most popular cities</div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-1 mt-12">
+        <div class="font-[400] text-[16px] text-[#000]">
+          Aceh
+        </div>
+        <div class="font-[400] text-[16px] text-[#000]">
+          Riau
+        </div>
+        <div class="font-[400] text-[16px] text-[#000]">
+          Kalimantan Barat
+        </div>
+        <div class="font-[400] text-[16px] text-[#000]">
+          Banten
+        </div>
+        <div class="font-[400] text-[16px] text-[#000]">
+          Aceh
+        </div>
+        <div class="font-[400] text-[16px] text-[#000]">
+          Riau
+        </div>
+        <div class="font-[400] text-[16px] text-[#000]">
+          Kalimantan Barat
+        </div>
+        <div class="font-[400] text-[16px] text-[#000]">
+          Banten
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

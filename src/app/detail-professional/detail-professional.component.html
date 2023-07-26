@@ -1,0 +1,128 @@
+<app-secondary-header></app-secondary-header>
+<div class="container mx-auto pb-32 mt-5 detail-professional-page">
+  <div class="flex items-center justify-center mb-10">
+    <div class="flex flex-col items-center">
+      <img class="h-[100px] w-[100px] rounded-full"
+        src="https://storage.googleapis.com/nstekapps-tokomobile.appspot.com/thumb-image/Z99lHyNvgg8ngjm4NU7lEptMkCfGaVDOqLC9T4KV.jpg"
+        alt="">
+      <h1 class="mt-3 text-5xl text-center font-bold">Brett Lither</h1>
+    </div>
+  </div>
+  <div>
+    <div class="flex justify-center mb-10">
+      <div class="swiper-container relative w-[80%]">
+        <swiper class="date" #swiperExplore [config]="swiperExploreConfig">
+          <ng-template swiperSlide class="cursor-pointer" *ngFor="let item of dateArray">
+            <div class="item-date">
+              <p class="text-center font-semibold uppercase">{{item.day.substring(0, 3)}}</p>
+              <p class="text-center">{{item.date}}</p>
+            </div>
+          </ng-template>
+        </swiper>
+        <button class="absolute left-0 sm:left-[-60px] top-0 text-[#86747A] z-10 h-[10px] text-[30px]"
+          (click)="prevExplore()"><i class="fa-solid fa-angle-left"></i></button>
+        <button class="absolute right-0 sm:right-[-60px] top-0 text-[#86747A] z-10 h-full text-[30px]"
+          (click)="nextExplore()"><i class="fa-solid fa-angle-right"></i></button>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <div class="h-[1px] w-full bg-gray-300"></div>
+      <div class="whitespace-nowrap mx-5 font-semibold">Friday, Juli 21</div>
+      <div class="h-[1px] w-full bg-gray-300"></div>
+    </div>
+    <div class="flex justify-between py-12">
+      <div class="flex w-1/2">
+        <div class="me-3">
+          <img class="h-[100px] w-[200px] object-cover object-top"
+            src="https://storage.googleapis.com/nstekapps-tokomobile.appspot.com/thumb-image/Z99lHyNvgg8ngjm4NU7lEptMkCfGaVDOqLC9T4KV.jpg"
+            alt="">
+        </div>
+        <div>
+          <div class="text-2xl font-medium">Yoga</div>
+          <div>Depok, Sleman, Yogyakarta</div>
+          <div class="flex items-center">
+            <div class="flex items-center">
+              <span class="star active">&#9733;</span>
+              <span class="star">&#9734;</span>
+              <span class="star">&#9734;</span>
+              <span class="star">&#9734;</span>
+              <span class="star">&#9734;</span>
+              <span class="text-gray-600 ml-2 text-[12px] font-[400]">4.0 (120 reviews)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-1/2 flex justify-between items-center border-l border-gray-300 px-5">
+        <div>
+          <p class="font-medium text-lg text-[#9133AE]">
+            6:00
+          </p>
+          <p class="font-light text-sm">
+            - 12:00
+          </p>
+        </div>
+        <button class="h-[60px] px-20 bg-[#9133AE] text-white mt-3">BOOK</button>
+      </div>
+    </div>
+    <div class="w-full h-[1px] bg-gray-300 my-0"></div>
+    <div class="flex justify-between py-12">
+      <div class="flex w-1/2">
+        <div class="me-3">
+          <img class="h-[100px] w-[200px] object-cover object-top"
+            src="https://storage.googleapis.com/nstekapps-tokomobile.appspot.com/thumb-image/Z99lHyNvgg8ngjm4NU7lEptMkCfGaVDOqLC9T4KV.jpg"
+            alt="">
+        </div>
+        <div>
+          <div class="text-2xl font-medium">Yoga</div>
+          <div>Depok, Sleman, Yogyakarta</div>
+          <div class="flex items-center">
+            <div class="flex items-center">
+              <span class="star active">&#9733;</span>
+              <span class="star">&#9734;</span>
+              <span class="star">&#9734;</span>
+              <span class="star">&#9734;</span>
+              <span class="star">&#9734;</span>
+              <span class="text-gray-600 ml-2 text-[12px] font-[400]">4.0 (120 reviews)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-1/2 flex justify-between items-center border-l border-gray-300 px-5">
+        <div>
+          <p class="font-medium text-lg text-[#9133AE]">
+            6:00
+          </p>
+          <p class="font-light text-sm">
+            - 12:00
+          </p>
+        </div>
+        <button class="h-[60px] px-20 bg-[#9133AE] text-white mt-3">BOOK</button>
+      </div>
+    </div>
+    <div class="w-full h-[1px] bg-gray-300 my-0"></div>
+  </div>
+  <h1 class="text-3xl font-semibold mb-5 mt-10">Related Service</h1>
+  <div class="grid grid-cols-4">
+    <div class="bg-white  rounded-lg overflow-hidden">
+      <img class="w-full h-[180px] object-cover object-top mb-[18px]"
+        src="https://storage.googleapis.com/nstekapps-tokomobile.appspot.com/thumb-image/Z99lHyNvgg8ngjm4NU7lEptMkCfGaVDOqLC9T4KV.jpg"
+        alt="Foto">
+      <div class="py-2">
+        <div class="flex items-center mb-2">
+          <span class="star active">&#9733;</span>
+          <span class="star">&#9734;</span>
+          <span class="star">&#9734;</span>
+          <span class="star">&#9734;</span>
+          <span class="star">&#9734;</span>
+          <span class="text-gray-600 ml-2 text-[12px] font-[400]">4.0 (120 reviews)</span>
+        </div>
+        <p class=" text-sm mb-2 text-[20px] font-[500] text-[#33363F]">Accupuncture</p>
+        <div class="flex justify-between">
+          <p class="text-[#86747A] text-[12px] font-[500]">Ruqiyah | 1 mi</p>
+          <p class="text-[#86747A] text-[12px] font-[500]">09 : 00 - 21 : 00</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

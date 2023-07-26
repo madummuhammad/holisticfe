@@ -1,0 +1,105 @@
+<header>
+  <nav class="bg-transparent">
+    <div class="lg:container lg:mx-auto px-6 py-3 ">
+      <div class="flex items-center justify-between">
+        <div class="flex justify-between items-center w-full me-[22px]">
+          <div class="text-xl font-semibold text-gray-700 me-[22px]">
+            <a [routerLink]="['/home']" routerLinkActive="router-link-active"
+              class="text-gray-800 text-xl font-bold hover:text-gray-700 md:text-2xl">
+              <img class="w-72" src="../../../assets/logo.png" alt="">
+            </a>
+          </div>
+          <div class="block md:hidden">
+            <button (click)="openHeader()"
+              class="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white">
+              <i class="fa-solid fa-bars text-gray-500"></i>
+            </button>
+          </div>
+          <div class="hidden lg:flex items-center" *ngIf="url=='service'">
+            <div class="text-center w-full">
+              <div class="flex">
+                <div class="relative bg-white rounded-l-[10px] shadow h-[64px] flex items-center">
+                  <div class="text-[16px] flex items-center ps-[20px]">
+                    <i class="fas fa-search text-gray-500 mr-2 text-[24px] me-[16px]"></i>
+                    <input type="text"
+                      class="w-full bg-transparent border-none py-[10px] focus:outline-none text-gray-700 placeholder-gray-500"
+                      placeholder="Search for anything">
+                  </div>
+                </div>
+                <div class="relative">
+                  <div class="bg-white rounded-r-[10px] shadow h-[64px] flex items-center">
+                    <div class="text-[16px] flex items-center ps-[20px]">
+                      <i class="fa-solid fa-location-dot  text-gray-500 mr-2 text-[24px] me-[16px]"></i>
+                      <input type="text"
+                        class="w-full bg-transparent border-none py-[10px] focus:outline-none text-gray-700 placeholder-gray-500"
+                        placeholder="Location">
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <button
+                    class="w-[64px] h-[64px] flex items-center justify-center bg-purple-500 rounded-[10px] ml-6 px-4">
+                    <i class="fas fa-search text-white text-[24px]"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hidden md:flex md:items-center">
+          <a [routerLink]="['/event']" routerLinkActive="router-link-active"
+            class="block mx-4 mt-2 md:mt-0 text-[#86747A] capitalize hover:text-blue-600 text-[24px] font-[500] whitespace-nowrap">Event</a>
+          <a [routerLink]="['/donations']" routerLinkActive="router-link-active"
+            class="cursor-pointer block mx-4 mt-2 md:mt-0 text-[#86747A] capitalize hover:text-blue-600 text-[24px] font-[500] whitespace-nowrap">Donate
+            Us</a>
+          <div class="relative" *ngIf="global.isLogin">
+            <button #buttonDropdown class="flex items-center mx-4 mt-2 md:mt-0 text-[#86747A] capitalize hover:text-blue-600 text-[24px]
+                font-[500] whitespace-nowrap">
+              Muhammad madum
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 ml-2">
+                <path fill-rule="evenodd"
+                  d="M10 15a1 1 0 01-.707-.293l-5-5a1 1 0 111.414-1.414L10 12.586l4.293-4.293a1 1 0 111.414 1.414l-5 5A1 1 0 0110 15z"
+                  clip-rule="evenodd" />
+              </svg>
+            </button>
+            <div #dropdown class="hidden bg-white   absolute right-0 mt-2 w-48 rounded-md shadow-lg z-10">
+              <a class="block px-4 py-2 text-sm hover:rounded-md cursor-pointer text-gray-700 hover:bg-gray-100"
+                [routerLink]="['/account']" routerLinkActive="router-link-active">Profile</a>
+              <a class="block px-4 py-2 text-sm hover:rounded-md cursor-pointer text-gray-700 hover:bg-gray-100"
+                (click)="logout()">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hidden sm:flex lg:hidden mx-auto items-center mt-5">
+        <div class="text-center w-full">
+          <div class="flex">
+            <div class="relative bg-white rounded-l-[10px] shadow h-[64px] flex items-center">
+              <div class="text-[16px] flex items-center ps-[20px]">
+                <i class="fas fa-search text-gray-500 mr-2 text-[24px] me-[16px]"></i>
+                <input type="text"
+                  class="w-full bg-transparent py-[10px] focus:border-none text-gray-700 placeholder-gray-500"
+                  placeholder="Search for anything">
+              </div>
+            </div>
+            <div class="relative">
+              <div class="bg-white rounded-r-[10px] shadow h-[64px] flex items-center">
+                <div class="text-[16px] flex items-center ps-[20px]">
+                  <i class="fa-solid fa-location-dot  text-gray-500 mr-2 text-[24px] me-[16px]"></i>
+                  <input type="text"
+                    class="w-full bg-transparent py-[10px] focus:border-none text-gray-700 placeholder-gray-500"
+                    placeholder="Location">
+                </div>
+              </div>
+            </div>
+            <div>
+              <button class="w-[64px] h-[64px] flex items-center justify-center bg-purple-500 rounded-[10px] ml-6 px-4">
+                <i class="fas fa-search text-white text-[24px]"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

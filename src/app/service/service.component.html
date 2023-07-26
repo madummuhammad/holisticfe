@@ -1,0 +1,32 @@
+<app-secondary-header></app-secondary-header>
+<div class="container px-6 lg:px-0 lg:mx-auto mb-[70px]">
+  <div class="flex justify-between items-center mt-8 mb-[48px]">
+    <div class="flex">
+      <button (click)="tabTo('face-to-face')"
+        [ngClass]="{'bg-white shadow-lg ': tab=='face-to-face','bg-[#ECECEC]':tab!=='face-to-face'}"
+        class="h-[48px] w-[163px] rounded-l-[24px] me-[1px] text-[#9133AE]  font-semibold">Face
+        to
+        face</button>
+      <button (click)="tabTo('online')" [ngClass]="{'bg-white shadow-lg ': tab=='online','bg-[#ECECEC]':tab!=='online'}"
+        class="h-[48px]  w-[163px] border-transparent me-[1px]  font-semibold text-[#86747A]">Online</button>
+      <button [ngClass]="{'bg-white shadow-lg ': tab=='store','bg-[#ECECEC]':tab!=='store'}" (click)="tabTo('store')"
+        class="h-[48px]   w-[163px] rounded-r-[24px] border-transparent text-[#86747A]
+        font-semibold">Store</button>
+    </div>
+  </div>
+  <div class="flex justify-between items-end w-full">
+    <h1 class="text-[32px] font-[500]">Services in Jakarta, IND</h1>
+    <div>
+      <div class="text-[14px] font-[400] mb-2">Sort By</div>
+      <select name="" id="" class="rounded-sm border w-[212px] h-[40px] px-[16px] border-[#ECECEC] text-[16px]">
+        <option value="asdf">A-Z</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="px-[16px] lg:px-[30px]">
+  <app-service-facetoface *ngIf="tab=='face-to-face'" class="w-full"></app-service-facetoface>
+  <app-service-online *ngIf="tab=='online'"></app-service-online>
+  <app-service-store *ngIf="tab=='store'"></app-service-store>
+</div>
+<app-footer></app-footer>

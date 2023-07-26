@@ -1,0 +1,63 @@
+<div class="">
+  <footer class="p-6 md:p-[82px] bg-[#2D2D2D]">
+    <div class="block lg:flex">
+      <div class="mb-6 md:mb-0 md:me-[84px]">
+        <a href="#" class="flex items-center mb-[50px]">
+          <span class="self-center font-semibold whitespace-nowrap text-white text-xl sm:text-[40px]">HOLISTIC
+            STATIONS</span>
+        </a>
+        <div class="flex text-white">
+          <div class="icon me-[34px]">
+            <i class="text-[48px] fa-brands fa-facebook"></i>
+          </div>
+          <div class="icon me-[34px]">
+            <i class="text-[48px] fa-brands fa-instagram"></i>
+          </div>
+          <div class="icon me-[34px]">
+            <i class="text-[48px] fa-brands fa-youtube"></i>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-10 lg:mt-0">
+        <div>
+          <h3 class="mb-6 text-[20px] font-[500] text-white cursor-pointer" [routerLink]="['/about-us']"
+            routerLinkActive="router-link-active">ABOUT US</h3>
+          <ul>
+            <li class="mb-4">
+              <a [routerLink]="['/faq']" routerLinkActive="router-link-active"
+                class="text-[20px] font-[400] text-white">FAQ</a>
+            </li>
+            <li class="mb-4">
+              <a href="https://api.whatsapp.com/send?phone=628123412344&text=Halo%20Holisticstation,%20saya%20mau%20Bergabung"
+                target="_blank" class="text-[20px] font-[400] text-white">CAREER</a>
+            </li>
+            <li class="mb-4">
+              <a class="text-[20px] font-[400] text-white cursor-pointer" [routerLink]="['/privacy-policy']"
+                routerLinkActive="router-link-active">PRIVACY POLICY</a>
+            </li>
+            <li class="mb-4">
+              <a [routerLink]="['/contact-us']" routerLinkActive="router-link-active"
+                class="text-[20px] font-[400] text-white">COLABORATION</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="mb-6 text-[20px] font-[500] text-white">BUSINESS OWNERS</h3>
+          <ul>
+            <li class="mb-4">
+              <a [routerLink]="['/contact-us']" routerLinkActive="router-link-active" href="#"
+                class="text-[20px] font-[400] text-white">SUPPORT</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="text-[20px] font-[400] text-white" *ngIf="!global.isLogin">LOGIN</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="mb-6 text-[20px] font-[500] text-white cursor-pointer" [routerLink]="['/contact-us']"
+            routerLinkActive="router-link-active">CONTACT US</h3>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>

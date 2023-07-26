@@ -1,0 +1,56 @@
+<h1 class="text-2xl mb-[20px] font-semibold">Profile</h1>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 w-full">
+  <div>
+    <div class="flex justify-between border-b border-gray-200 py-3">
+      <div>
+        Account Information
+      </div>
+      <app-edit-account-information [account]="account"></app-edit-account-information>
+
+    </div>
+    <div class="mt-3">
+      <div class="font-extralight">Name</div>
+      <div>
+        <span>{{account.first_name}} </span><span>{{account.last_name}}</span>
+      </div>
+    </div>
+    <div class="mt-3">
+      <div class="font-extralight">Email</div>
+      <div>{{account.email}}</div>
+    </div>
+  </div>
+  <div>
+    <div class="flex justify-between border-b border-gray-200 py-3">
+      <div>
+        Contact Information
+      </div>
+      <app-edit-contact-information [account]="account"></app-edit-contact-information>
+    </div>
+    <div class="mt-3">
+      <div class="font-extralight">Phone</div>
+      <div>{{account.no_hp}}</div>
+    </div>
+    <div class="mt-3">
+      <div class="font-extralight">Country</div>
+      <div>{{account.country}}</div>
+    </div>
+    <div class="mt-3">
+      <div class="font-extralight">Address</div>
+      <div>
+        {{account.country}},
+        <span *ngIf="account.province">
+          {{account.province.split('|')[1]}},
+        </span>
+        <span *ngIf="account.city">
+          {{account.city.split('|')[1]}},
+        </span>
+        <span *ngIf="account.address">
+          {{account.address}}
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- <div>
+    Personal Information
+  </div> -->
+</div>

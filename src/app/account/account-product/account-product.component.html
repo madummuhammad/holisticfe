@@ -1,0 +1,33 @@
+<h1 class="text-2xl mb-[20px] font-semibold">Product</h1>
+<app-create-product></app-create-product>
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-12 w-full">
+  <div class="bg-white  rounded-lg overflow-hidden shadow relative">
+    <div class="sm:max-w-xs sm:mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+      <img class="w-full h-[180px] object-cover object-top mb-[18px]"
+        src="https://storage.googleapis.com/nstekapps-tokomobile.appspot.com/thumb-image/stuC46L2lAxr7W1Vt09s69rktTZjkxrtyEgcH3mY.jpg"
+        alt="Gambar Produk">
+      <div class="p-2 mb-5">
+        <div class="flex justify-between">
+          <div class="text-[#33363F] font-[500] text-lg text-[20px]">Herbal</div>
+          <div>
+            <p class="text-[#9133AE] text-[14px]">Rp 100.000</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div (click)="openDropdown(dropdown,$event)" class="absolute bottom-2 right-2">
+      <div class="bg-[#33363F] w-6 h-6 rounded-full text-white text-center leading-6 cursor-pointer">
+        <span>&#8942;</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class=" bg-white absolute  mt-2 w-48 rounded-md shadow-lg" [style.top]="top" [style.left]="left"
+  *ngIf="dropdownOpen">
+  <div aria-labelledby="serviceDropdownArea">
+    <!-- <a class="block px-4 py-2 text-sm hover:rounded-md cursor-pointer text-gray-700 hover:bg-gray-100">Detail</a> -->
+    <app-edit-service></app-edit-service>
+    <a class="block px-4 py-2 text-sm hover:rounded-md cursor-pointer text-gray-700 hover:bg-gray-100">Delete</a>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<app-secondary-header></app-secondary-header>
+<div class="container px-6 lg:px-0 lg:mx-auto mb-[70px]">
+  <div class="mt-8 flex flex-wrap justify-start">
+    <div class="w-[30%] lg:w-1/4">
+      <div class="px-4">
+        <div class="p-4">
+          <div class="flex justify-center">
+            <label class="profile w-[100px] p-5 h-[100px] rounded-full border border-gray-200 block">
+              <img class="w-full h-full" src="../../assets/profile.png" alt="">
+            </label>
+          </div>
+          <h3 class="font-semibold text-center mt-4">Muhammad Ma'dum</h3>
+          <div class="sidebar mt-10">
+            <div class="flex items-center sidebar-item" [ngClass]="{'active': tab=='profile'}"
+              (click)="tabTo('profile')">
+              <i class="fa-regular fa-user sidebar-icon"></i>
+              Profile
+            </div>
+            <div class="flex items-center sidebar-item">
+              <i class="fa-solid fa-calendar-days"></i>
+              Schedule
+            </div>
+            <div class="flex items-center sidebar-item" [ngClass]="{'active': tab=='product'}"
+              (click)="tabTo('product')">
+              <i class="fa-solid fa-boxes-stacked"></i>
+              Product
+            </div>
+            <div class="flex items-center sidebar-item" [ngClass]="{'active': tab=='service'}"
+              (click)="tabTo('service')">
+              <i class="fa-solid fa-users-gear"></i>
+              Service
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-[70%] lg:w-3/4 pl-8">
+      <app-profile *ngIf="tab=='profile'"></app-profile>
+      <app-account-product *ngIf="tab=='product'"></app-account-product>
+      <app-account-service *ngIf="tab=='service'"></app-account-service>
+    </div>
+  </div>
+
+</div>
+<app-footer></app-footer>
